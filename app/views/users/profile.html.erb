@@ -1,0 +1,91 @@
+<h1 class="profile-title">Your Profile</h1>
+
+<h2 class="section-title">Currently Borrowed Books</h2>
+<% if @borrowings.any? %>
+  <div class="borrowed-books">
+    <% @borrowings.each do |borrowing| %>
+      <div class="book-card">
+        <h3 class="book-title"><%= borrowing.book.title %> by <%= borrowing.book.author %></h3>
+        <p class="due-date">Due Date: <%= borrowing.due_date.strftime('%B %d, %Y') %></p>
+        <%= link_to 'Return', return_book_book_path(borrowing.book), method: :patch, class: 'button return-button' %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="no-books">You have no borrowed books.</p>
+<% end %>
+
+<style>
+  .profile-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+
+  .section-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #555;
+  }
+
+  .borrowed-books {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .book-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+  }
+
+  .book-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  .due-date {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #777;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007aff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background-color: #005bb5;
+  }
+
+  .return-button {
+    background-color: #ff3b30;
+  }
+
+  .return-button:hover {
+    background-color: #c1271d;
+  }
+
+  .no-books {
+    text-align: center;
+    font-size: 1.2em;
+    color: #777;
+  }
+</style>

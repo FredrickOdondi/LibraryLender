@@ -1,0 +1,8 @@
+<h1><%= @book.title %> by <%= @book.author %></h1>
+<p>ISBN: <%= @book.isbn %></p>
+
+<% if @book.borrowings.where(returned: false).empty? %>
+  <%= button_to 'Borrow This Book', borrow_book_path(@book), method: :post %>
+<% else %>
+  <p>This book is currently borrowed</p>
+<% end %>

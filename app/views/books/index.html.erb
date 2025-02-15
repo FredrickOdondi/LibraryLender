@@ -1,0 +1,89 @@
+<h1 class="page-title">All Books</h1>
+
+<div class="book-cards">
+  <% @books.each do |book| %>
+    <div class="book-card">
+      <h3 class="book-title"><%= book.title %> by <%= book.author %></h3>
+      <p class="book-isbn">ISBN: <%= book.isbn %></p>
+      <%= link_to 'Show Details', book_path(book), class: 'button details-button' %>
+      <% unless book.borrowings.where(returned: false).exists? %>
+        <%= button_to 'Borrow', borrow_book_path(book), method: :post, class: 'button borrow-button' %>
+      <% else %>
+        <p class="borrowed-message">This book is currently borrowed</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<style>
+  .page-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+
+  .book-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .book-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+  }
+
+  .book-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  .book-isbn {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #777;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007aff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  .button:hover {
+    background-color: #005bb5;
+  }
+
+  .details-button {
+    background-color: #007aff;
+  }
+
+  .borrow-button {
+    background-color: #34c759;
+  }
+
+  .borrow-button:hover {
+    background-color: #28a745;
+  }
+
+  .borrowed-message {
+    font-size: 1.2em;
+    color: #ff3b30;
+    margin-top: 10px;
+  }
+</style>

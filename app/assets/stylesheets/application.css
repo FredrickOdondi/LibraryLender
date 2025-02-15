@@ -1,0 +1,117 @@
+/* app/assets/stylesheets/application.scss */
+/* Add to app/assets/stylesheets/application.scss */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  background-color: #f7f7f7; /* Light background */
+  color: #333; /* Dark text for readability */
+}
+
+
+/* Basic Layout */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f5;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  header {
+    padding: 20px 0;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  header h1 {
+    font-size: 2.5em;
+    text-align: center;
+    color: #333;
+  }
+  
+  nav {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #f8f8f7;
+  }
+  
+  nav a {
+    color: #007aff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 10px;
+  }
+  
+  nav a:hover {
+    background-color: #e0e0e5;
+    border-radius: 5px;
+  }
+  
+  /* Buttons */
+  button, .button {
+    background-color: #007aff; /* Apple Blue */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+  }
+  
+  button:hover, .button:hover {
+    background-color: #0051a8; /* Darker blue on hover */
+  }
+  
+  button:disabled {
+    background-color: #c6c6c8; /* Disabled state */
+  }
+  
+  /* Card for Book Item */
+  .book-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    display: inline-block;
+    width: 280px;
+    margin-bottom: 20px;
+  }
+  
+  .book-card h3 {
+    font-size: 1.5em;
+    color: #333;
+  }
+  
+  .book-card p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  .book-card .borrow-button {
+    background-color: #007aff;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+  }
+  
+  .book-card .borrow-button:hover {
+    background-color: #0051a8;
+  }
+  
