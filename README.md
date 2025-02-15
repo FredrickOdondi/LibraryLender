@@ -1,4 +1,5 @@
 # Library Management System🤖👽
+![Alt Text](https://github.com/user-attachments/assets/5a07e157-307b-4117-abc1-b666b7720f4d)
 
 ## Overview
 This is a **Library Management System** built using **Ruby on Rails**, designed as my first hands-on project with the framework. As a backend Java developer transitioning into Ruby on Rails, I found this framework to be incredibly productive, offering rapid development with minimal boilerplate code. The system allows users to borrow and return books while demonstrating key aspects of **CRUD (Create, Read, Update, Delete)** operations, **Active Record associations**, and basic authentication.
