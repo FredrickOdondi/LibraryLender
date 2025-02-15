@@ -86,3 +86,43 @@ class Borrowing < ApplicationRecord
     self.due_date = 2.weeks.from_now.to_date
   end
 end
+```
+## Routes Configuration
+
+The routes are defined to handle CRUD operations and custom actions:
+
+```ruby
+# config/routes.rb
+Rails.application.routes.draw do
+  root 'books#index'
+  resources :books, only: [:index, :show]
+  post '/books/:id/borrow', to: 'borrowings#create', as: 'borrow_book'
+  delete '/books/:id/return', to: 'borrowings#destroy', as: 'return_book'
+  resources :users, only: [:show]
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+end
+# app/controllers/borrowings_controller.rb
+class BorrowingsController < ApplicationController
+  before_action :authenticate_user!
+
+  def create
+    @book = Book.find(params[:id])
+    if @book.available?
+      @borrowing = current_user.borrowings.create!(book: @book)
+      redirect_to book_path(@book), notice: 'Book borrowed successfully.'
+    else
+      redirect_to book_path(@book), alert: 'This book is already borrowed.'
+    end
+  end
+
+  def destroy
+    @borrowing = current_user.borrowings.find_by!(book_id: params[:id], returned: false)
+    @borrowing.update!(returned: true)
+    redirect_to user_path(current_user), notice: 'Book returned successfully.'
+  end
+end
+```
+git clone https://github.com/your-username/library-management-system.git
+cd library-management-system
