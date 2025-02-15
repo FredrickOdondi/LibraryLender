@@ -8,6 +8,7 @@ The application includes features such as user registration, book browsing, borr
 
 ---
 
+![Alt Text](https://github.com/user-attachments/assets/62a4f80e-8904-468e-b4ad-436fb1e81e9a)
 ## Key Features
 
 1. **User Authentication:**
